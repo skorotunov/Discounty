@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Discounty</title>
+    <base href="/" />
+</head>
+<body>
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover">
+            @RenderBody()
+        </main>
+
+        <footer class="mastfoot mt-auto text-center">
+            <div class="inner">
+                <p>&copy; 2020 - Discounty</p>
+            </div>
+        </footer>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
