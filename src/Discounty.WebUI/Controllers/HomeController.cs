@@ -1,5 +1,4 @@
-﻿using Discounty.WebUI.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Discounty.WebUI.Controllers
 {
@@ -7,16 +6,6 @@ namespace Discounty.WebUI.Controllers
     {
         public HomeController()
         {
-        }
-
-        public IActionResult Index()
-        {
-            var vm = new FeaturedProductsViewModel(new[]
-            {
-                new ProductViewModel("Chocolate", 34.95m),
-                new ProductViewModel("Asparagus", 39.80m)
-            });
-            return View(vm);
         }
     }
 }
