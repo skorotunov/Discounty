@@ -8,7 +8,7 @@ namespace Discounty.Application.Common.Interfaces
     /// <summary>
     /// Service which represents system database context. EF core dbcontext represents Unit of Work.
     /// </summary>
-    public interface IDbContext
+    public interface IApplicationDbContext
     {
         /// <summary>
         /// Repository of the Category entities.

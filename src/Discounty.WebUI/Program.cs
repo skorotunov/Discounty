@@ -1,4 +1,6 @@
+using Discounty.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -19,8 +21,8 @@ namespace Discounty.WebUI
                 IHost host = CreateHostBuilder(args).Build();
                 using (IServiceScope scope = host.Services.CreateScope())
                 {
-                    // todo: get context
-                    // todo: migrate context
+                    ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    context.Database.Migrate();
                 }
 
                 await host.RunAsync();
@@ -28,7 +30,7 @@ namespace Discounty.WebUI
             catch (Exception exception)
             {
                 // NLog: catch setup errors
-                logger.Error(exception, "Stopped application because of exception");
+                logger.Error(exception, "Stop application because of exception");
                 throw;
             }
             finally

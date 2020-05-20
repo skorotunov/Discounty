@@ -13,10 +13,10 @@ namespace Discounty.Application.Categories.Queries.GetCategories
     /// </summary>
     public class GetCategoriesQueryHandler : IRequestHandler<GetCategoriesQuery, CategoriesVM>
     {
-        private readonly IDbContext context;
+        private readonly IApplicationDbContext context;
         private readonly IMapper mapper;
 
-        public GetCategoriesQueryHandler(IDbContext context, IMapper mapper)
+        public GetCategoriesQueryHandler(IApplicationDbContext context, IMapper mapper)
         {
             this.context = context;
             this.mapper = mapper;
