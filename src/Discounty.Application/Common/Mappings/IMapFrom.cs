@@ -8,9 +8,6 @@ namespace Discounty.Application.Common.Mappings
     /// <typeparam name="T">Type of the calss to register mapping.</typeparam>
     public interface IMapFrom<T>
     {
-        void Mapping(Profile profile)
-        {
-            profile.CreateMap(typeof(T), GetType());
-        }
+        void Mapping(Profile profile) => profile.CreateMap(typeof(T), GetType());
     }
 }

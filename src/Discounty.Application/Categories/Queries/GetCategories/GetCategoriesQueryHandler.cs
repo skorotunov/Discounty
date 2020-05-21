@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using Discounty.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,8 +19,8 @@ namespace Discounty.Application.Categories.Queries.GetCategories
 
         public GetCategoriesQueryHandler(IApplicationDbContext context, IMapper mapper)
         {
-            this.context = context;
-            this.mapper = mapper;
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<CategoriesVM> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)

@@ -16,13 +16,9 @@ namespace Discounty.Infrastructure
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
                     x => x.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
             services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddTransient<IDateTime, DateTimeService>();
-
             return services;
         }
     }

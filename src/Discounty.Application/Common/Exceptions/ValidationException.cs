@@ -6,7 +6,7 @@ using System.Linq;
 namespace Discounty.Application.Common.Exceptions
 {
     /// <summary>
-    /// Custom exception aimed to represnt incorrect inpu data for the request.
+    /// Custom exception aimed to represnt incorrect input data for the request.
     /// </summary>
     public class ValidationException : Exception
     {

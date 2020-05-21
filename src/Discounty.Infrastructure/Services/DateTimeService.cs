@@ -5,12 +5,6 @@ namespace Discounty.Infrastructure.Services
 {
     public class DateTimeService : IDateTime
     {
-        public DateTime Now
-        {
-            get
-            {
-                return DateTime.Now;
-            }
-        }
+        public DateTime Now => DateTime.Now;
     }
 }

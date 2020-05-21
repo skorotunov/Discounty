@@ -76,9 +76,9 @@ csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_indexers = false:silent
 csharp_style_expression_bodied_lambdas = false:silent
 csharp_style_expression_bodied_local_functions = false:silent
-csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_methods = true:silent
 csharp_style_expression_bodied_operators = false:silent
-csharp_style_expression_bodied_properties = false:silent
+csharp_style_expression_bodied_properties = true:silent
 
 # Pattern matching preferences
 csharp_style_pattern_matching_over_as_with_null_check = false:silent
@@ -235,3 +235,10 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+# Guidelines
+
+guidelines = 200
+
+# CS1998: Async method lacks 'await' operators and will run synchronously
+dotnet_diagnostic.CS1998.severity = none
