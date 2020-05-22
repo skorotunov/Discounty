@@ -1,11 +1,11 @@
 using Discounty.Application;
 using Discounty.Application.Common.Interfaces;
 using Discounty.Infrastructure;
-using Discounty.WebUI.Common;
+using Discounty.WebUI.Filters;
 using Discounty.WebUI.Services;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,18 +26,17 @@ namespace Discounty.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication();
-
             services.AddInfrastructure(Configuration);
-
             services.AddScoped<ICurrentUserService, CurrentUserService>();
-
             services.AddHttpContextAccessor();
+            services.AddControllersWithViews(options =>
+                options.Filters.Add(new ApiExceptionFilter()));
 
-            services.AddSignalR();
-
-            services.AddControllersWithViews()
-                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>());
-
+            // Customise default API behaviour
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
             services.AddRazorPages();
 
             services.AddSwaggerGen(x =>
@@ -52,6 +51,7 @@ namespace Discounty.WebUI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -61,25 +61,16 @@ namespace Discounty.WebUI
                 app.UseHsts();
             }
 
-            app.UseCustomExceptionHandler();
-
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
-
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Discounty V1");
             });
-
             app.UseRouting();
-
             app.UseAuthentication();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

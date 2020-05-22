@@ -1,10 +1,9 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Discounty.WebUI.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public abstract class ApiController : ControllerBase
@@ -13,7 +12,7 @@ namespace Discounty.WebUI.Controllers
 
         public ApiController(IMediator mediator)
         {
-            Mediator = mediator;
+            Mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
     }
 }

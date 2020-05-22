@@ -16,9 +16,9 @@ namespace Discounty.Application.Common.Behaviours
         private readonly ILogger logger;
         private readonly ICurrentUserService currentUserService;
 
-        public LoggingBehaviour(ILoggerFactory loggerFactory, ICurrentUserService currentUserService)
+        public LoggingBehaviour(ILogger<TRequest> logger, ICurrentUserService currentUserService)
         {
-            logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger<LoggingBehaviour<TRequest>>();
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.currentUserService = currentUserService ?? throw new ArgumentNullException(nameof(currentUserService));
         }
 

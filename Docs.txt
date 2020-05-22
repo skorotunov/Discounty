@@ -1,0 +1,18 @@
+1. check:
+
+2. implement:
+    guard clause
+    404 error handling
+
+3. todo:
+    strings to resources
+
+4. possibly:
+    AuditableEntity to dbcontext savechanges
+    seed to insert user
+    health check
+    angular
+    spa
+    UPDATE TO UseSwaggerUi3
+    udentity server authorization
+

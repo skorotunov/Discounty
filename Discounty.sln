@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A0346F0-EABA-4BB6-AD6B-D662C9F51CC7}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Docs.txt = Docs.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B95A4D53-2B89-4A1A-B6D5-EFAC01378F0E}"
@@ -18,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discounty.WebUI.UnitTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discounty.Domain", "src\Discounty.Domain\Discounty.Domain.csproj", "{EBE95D30-15E0-4E14-BC25-BF9F10B44B91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discounty.Application", "src\Discounty.Application\Discounty.Application.csproj", "{449B4518-6FEB-4842-A7CC-6D029DDDE213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discounty.Application", "src\Discounty.Application\Discounty.Application.csproj", "{449B4518-6FEB-4842-A7CC-6D029DDDE213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discounty.Infrastructure", "src\Discounty.Infrastructure\Discounty.Infrastructure.csproj", "{77AF062D-7463-4606-A0E5-1F0EC61C6E09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discounty.Infrastructure", "src\Discounty.Infrastructure\Discounty.Infrastructure.csproj", "{77AF062D-7463-4606-A0E5-1F0EC61C6E09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
